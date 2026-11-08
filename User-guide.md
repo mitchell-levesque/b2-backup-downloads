@@ -1,6 +1,6 @@
 # B2 Backup user guide
 
-Current release: **3.2.23**. Download **Win-B2-Backup-Setup.exe** from the [downloads page](https://github.com/mitchell-levesque/b2-backup-downloads/releases/latest).
+Current release: **3.2.24**. Download **Win-B2-Backup-Setup.exe** from the [downloads page](https://github.com/mitchell-levesque/b2-backup-downloads/releases/latest).
 
 B2 Backup is a Windows interface for rclone and Backblaze B2. rclone compares and transfers files; the app manages setup, scheduling, exclusions, run results, optimization and cloud cleanup. Python and developer tools are not required to use the app.
 
@@ -8,7 +8,7 @@ B2 Backup is a Windows interface for rclone and Backblaze B2. rclone compares an
 
 Windows 10/11, .NET Framework 4.8, Windows PowerShell 5.1, administrator access, an internet connection and your own Backblaze B2 account are required. The installer downloads a pinned, checksum-verified rclone engine.
 
-Use the Windows account that owns the installation. Elevation under another account is rejected. The installation is stored in `C:\ProgramData\Win-B2-Backup`; its manager is **B2 Backup.exe**.
+Use the Windows account that owns the installation. Elevation under another account is rejected. New installations are stored in `C:\ProgramData\Win-B2-Backup`; the manager is **B2 Backup.exe**. If an existing backup is found under `C:\ProgramData\PC-B2-Backup`, it is reused in place, including its saved schedule, credentials and history.
 
 ## Install or update
 
@@ -19,6 +19,8 @@ The installed app checks for a newer stable release in the background when opene
 The update is downloaded from the public downloads repository. Its size, SHA256 digest and executable version are checked before it runs. Unsaved settings must be saved or cancelled first, and the button is disabled during local operations. The installer waits if an independent backup, preview or cleanup is still running. A failed download leaves the installed version unchanged and can be retried. Windows may ask for administrator approval.
 
 Update checks send an HTTPS request to GitHub; they do not include B2 credentials, backup paths or logs. No GitHub login is required.
+
+Version 3.2.24 detects saved installations from before the rename. If 3.2.23 displayed first-time setup on a previously configured PC, close that window and open the latest setup file. It will find the existing backup without asking you to configure it again.
 
 Close older manager windows before updating. If a backup, preview or cleanup is running, the update waits; choose Later to return after it finishes. Follow the retry prompt if another manager window is still open. Failed updates restore the previous files. Older installers cannot downgrade a newer installation.
 
