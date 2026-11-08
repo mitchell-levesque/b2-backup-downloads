@@ -1,6 +1,6 @@
 # B2 Backup user guide
 
-Current release: **3.2.22**. Download **PC-B2-Backup-Setup.exe** from the [downloads page](https://github.com/mitchell-levesque/b2-backup-downloads/releases/latest).
+Current release: **3.2.23**. Download **Win-B2-Backup-Setup.exe** from the [downloads page](https://github.com/mitchell-levesque/b2-backup-downloads/releases/latest).
 
 B2 Backup is a Windows interface for rclone and Backblaze B2. rclone compares and transfers files; the app manages setup, scheduling, exclusions, run results, optimization and cloud cleanup. Python and developer tools are not required to use the app.
 
@@ -8,13 +8,13 @@ B2 Backup is a Windows interface for rclone and Backblaze B2. rclone compares an
 
 Windows 10/11, .NET Framework 4.8, Windows PowerShell 5.1, administrator access, an internet connection and your own Backblaze B2 account are required. The installer downloads a pinned, checksum-verified rclone engine.
 
-Use the Windows account that owns the installation. Elevation under another account is rejected. The installation is stored in `C:\ProgramData\PC-B2-Backup`.
+Use the Windows account that owns the installation. Elevation under another account is rejected. The installation is stored in `C:\ProgramData\Win-B2-Backup`; its manager is **B2 Backup.exe**.
 
 ## Install or update
 
-Open **PC-B2-Backup-Setup.exe**. A new installation opens guided setup. Opening a newer installer updates the existing application and worker, then opens Backup overview. Settings, exclusions, saved credentials, history and queued removals are retained. A paused schedule stays paused.
+Open **Win-B2-Backup-Setup.exe**. A new installation opens guided setup. Opening a newer installer updates the existing application and worker, then opens Backup overview. Settings, exclusions, saved credentials, history and queued removals are retained. A paused schedule stays paused.
 
-The installed app checks for a newer stable release in the background when opened. If one is available, choose **Install and restart** or **Later**. Later dismisses the offer for this opening; the app checks again next time. Offline or failed checks do not block normal use. This feature starts with version 3.2.22, so install that version manually once if you have an older app.
+The installed app checks for a newer stable release in the background when opened. If one is available, choose **Install and restart** or **Later**. Later dismisses the offer for this opening; the app checks again next time. Offline or failed checks do not block normal use.
 
 The update is downloaded from the public downloads repository. Its size, SHA256 digest and executable version are checked before it runs. Unsaved settings must be saved or cancelled first, and the button is disabled during local operations. The installer waits if an independent backup, preview or cleanup is still running. A failed download leaves the installed version unchanged and can be retried. Windows may ask for administrator approval.
 
@@ -23,6 +23,7 @@ Update checks send an HTTPS request to GitHub; they do not include B2 credential
 Close older manager windows before updating. If a backup, preview or cleanup is running, the update waits; choose Later to return after it finishes. Follow the retry prompt if another manager window is still open. Failed updates restore the previous files. Older installers cannot downgrade a newer installation.
 
 Check the installed version under **Options > Support and maintenance**.
+
 
 ## First-time setup
 
@@ -72,7 +73,7 @@ The tabs share folder navigation, keyword search and table layout. Individual-fi
 
 Sizes describe the recorded operations, not the entire local folder. Deletions include cloud files that may no longer exist locally. Unknown sizes show a dash. Permanent cleanup records file counts and stored-version counts separately: one file may have several removed versions. A processed approved version that was already absent is not recorded as a new deletion.
 
-History sorts dates, file counts, uploaded bytes and durations by their values. Local history defaults to 14 days, with up to 500 retained runs available in History. File details are available while the corresponding journals remain retained. Version 3.2.20 and later rebuild previously failed large-cleanup indexes from those journals when results are opened.
+History sorts dates, file counts, uploaded bytes and durations by their values. Local history defaults to 14 days, with up to 500 retained runs available in History. File details are available while the corresponding journals remain retained. The app rebuilds missing large-cleanup indexes from those journals when results are opened.
 
 ### Skips and attention preferences
 
@@ -134,12 +135,12 @@ rclone compares included local and cloud inventories and transfers new or change
 
 The interface reads large results in bounded pages and loads cloud listings asynchronously. Idle status normally refreshes every 30 seconds and every five seconds while a backup is running. Closing the manager does not stop scheduled backups.
 
-**Open backup logs** shows retained rclone logs and run summaries. **Open app diagnostics** shows interface exception records under `%LOCALAPPDATA%\PCBackup\diagnostics`. The diagnostics folder is created when opened. GUI diagnostics record exception types and stack traces rather than raw credentials or backend responses, and their file size is bounded.
+**Open backup logs** shows retained rclone logs and run summaries. **Open app diagnostics** shows interface exception records under `%LOCALAPPDATA%\B2Backup\diagnostics`. The diagnostics folder is created when opened. GUI diagnostics record exception types and stack traces rather than raw credentials or backend responses, and their file size is bounded.
 
 JSON stores settings and summaries; JSONL stores one operation record per line for streaming and searching. Both are plain text. Use the result tabs and readable report/export for everyday review. Retention applies to local history; B2 retention is configured separately.
 
 ## Sharing and removal
 
-Share **PC-B2-Backup-Setup.exe**. Each person configures their own B2 key, bucket and Windows account. Installed credentials and configuration are local to that person; share the installer rather than the installed ProgramData directory.
+Share **Win-B2-Backup-Setup.exe**. Each person configures their own B2 key, bucket and Windows account. Installed credentials and configuration are local to that person; share the installer rather than the installed ProgramData directory.
 
 Support and maintenance includes uninstall. Removing the application does not turn an exclusion into a cloud deletion; use the reviewed cloud-cleanup workflow for permanent remote removal.
