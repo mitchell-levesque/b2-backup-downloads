@@ -1,6 +1,6 @@
 # B2 Backup user guide
 
-Current release: **3.2.24**. Download **Win-B2-Backup-Setup.exe** from the [downloads page](https://github.com/mitchell-levesque/b2-backup-downloads/releases/latest).
+Current release: **3.2.25**. Download **Win-B2-Backup-Setup.exe** from the [downloads page](https://github.com/mitchell-levesque/b2-backup-downloads/releases/latest).
 
 B2 Backup is a Windows interface for rclone and Backblaze B2. rclone compares and transfers files; the app manages setup, scheduling, exclusions, run results, optimization and cloud cleanup. Python and developer tools are not required to use the app.
 
@@ -20,7 +20,7 @@ The update is downloaded from the public downloads repository. Its size, SHA256 
 
 Update checks send an HTTPS request to GitHub; they do not include B2 credentials, backup paths or logs. No GitHub login is required.
 
-Version 3.2.24 detects saved installations from before the rename. If 3.2.23 displayed first-time setup on a previously configured PC, close that window and open the latest setup file. It will find the existing backup without asking you to configure it again.
+Version 3.2.24 and later detect saved installations from before the rename. If 3.2.23 displayed first-time setup on a previously configured PC, close that window and open the latest setup file. It will find the existing backup without asking you to configure it again.
 
 Close older manager windows before updating. If a backup, preview or cleanup is running, the update waits; choose Later to return after it finishes. Follow the retry prompt if another manager window is still open. Failed updates restore the previous files. Older installers cannot downgrade a newer installation.
 
@@ -79,7 +79,7 @@ History sorts dates, file counts, uploaded bytes and durations by their values. 
 
 ### Skips and attention preferences
 
-Options lets you choose which skipped-file categories need attention and which are informational. Known in-use, changing and confirmed local access-denied reads are informational by default. Read/compare failures have a separate category. Unclassified operation failures remain separate from routine skips.
+Options lets you choose which skipped-file categories need attention and which are informational. In-use, changing, unavailable, local access-denied and general permission-needed skips are informational by default. Cloud permissions, connection issues, storage full, read/compare failures and other issues are flagged by default. Read/compare failures have a separate category. Unclassified operation failures remain separate from routine skips.
 
 All skips remain visible and are retried later. Failed operations, critical errors, unreadable whole sources and blocked Mirror deletion checks still need attention. Attention preferences also affect how old runs are displayed without changing their original records. Success with informational skips does not mean every file was uploaded. Preferences do not weaken deletion safeguards.
 
@@ -122,7 +122,7 @@ Optimization settings are available from Options and the optimization confirmati
 | Category | Default threshold |
 | --- | --- |
 | Large | 1,024 MB |
-| Frequently changing | 32 MB uploaded across at least two of the latest five matching retained backups |
+| Frequently changing | 4 MB uploaded across at least two of the latest five matching retained backups |
 | Likely disposable | Nonempty folders, with a 0 MB minimum |
 
 Thresholds accept fractional MB. Detection names and required locations are shown for reference. **Folders not suggested again** contains the collapsed remembered list. Allow suggestions again reverses a Keep choice; Exclude selected folders opens an ordinary unsaved exclusion draft.
