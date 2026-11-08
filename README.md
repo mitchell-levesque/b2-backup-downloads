@@ -31,6 +31,8 @@ Opening the installed app checks for updates in the background. Choose **Install
 You can also update manually by closing the manager and opening a newer setup file.
 
 
+Existing PC Backup installations are detected and reused in place. If version 3.2.23 showed first-time setup on an already configured PC, close it and open the latest setup file; you do not need to enter your account and folders again.
+
 ## What it does
 
 - Copy or guarded Mirror backups, with a read-only preview.
