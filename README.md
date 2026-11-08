@@ -1,12 +1,12 @@
-# B2 Backup
+# Windows B2 Backup
 
 A Windows interface for **Backblaze B2 and rclone**. Set up scheduled backups, review results, exclude folders and restore files without working at a command prompt.
 
-**[Download the latest Windows installer](https://github.com/mitchell-levesque/b2-backup-downloads/releases/latest/download/PC-B2-Backup-Setup.exe)** | **[Release notes](https://github.com/mitchell-levesque/b2-backup-downloads/releases/latest)**
+**[Download the latest Windows installer](https://github.com/mitchell-levesque/b2-backup-downloads/releases/latest/download/Win-B2-Backup-Setup.exe)** | **[Release notes](https://github.com/mitchell-levesque/b2-backup-downloads/releases/latest)**
 
 ## Get started
 
-1. Download PC-B2-Backup-Setup.exe and open it on Windows 10 or 11.
+1. Download Win-B2-Backup-Setup.exe and open it on Windows 10 or 11.
 2. Connect your own Backblaze B2 application key and choose a private bucket.
 3. Select backup folders, choose a schedule and activate backups.
 
@@ -26,9 +26,10 @@ Quick tips:
 
 ## Updates
 
-Starting with 3.2.22, opening the installed app checks for updates in the background. Choose **Install and restart** when offered, or **Later** to keep working. A failed or offline check does not prevent the app from opening. The installer waits for active backup work and keeps saved settings, exclusions, schedule, history and credentials. Windows may ask for administrator approval.
+Opening the installed app checks for updates in the background. Choose **Install and restart** when offered, or **Later** to keep working. A failed or offline check does not prevent the app from opening. The installer waits for active backup work and keeps saved settings, exclusions, schedule, history and credentials. Windows may ask for administrator approval.
 
-If you have an older version, install the latest setup manually once to get startup update checks. You can always update manually by closing the manager and opening a newer setup file.
+You can also update manually by closing the manager and opening a newer setup file.
+
 
 ## What it does
 
