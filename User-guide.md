@@ -1,6 +1,6 @@
 # B2 Backup user guide
 
-Current release: **3.2.25**. Download **Win-B2-Backup-Setup.exe** from the [downloads page](https://github.com/mitchell-levesque/b2-backup-downloads/releases/latest).
+Current release: **3.2.26**. Download **Win-B2-Backup-Setup.exe** from the [downloads page](https://github.com/mitchell-levesque/b2-backup-downloads/releases/latest).
 
 B2 Backup is a Windows interface for rclone and Backblaze B2. rclone compares and transfers files; the app manages setup, scheduling, exclusions, run results, optimization and cloud cleanup. Python and developer tools are not required to use the app.
 
@@ -146,3 +146,9 @@ JSON stores settings and summaries; JSONL stores one operation record per line f
 Share **Win-B2-Backup-Setup.exe**. Each person configures their own B2 key, bucket and Windows account. Installed credentials and configuration are local to that person; share the installer rather than the installed ProgramData directory.
 
 Support and maintenance includes uninstall. Removing the application does not turn an exclusion into a cloud deletion; use the reviewed cloud-cleanup workflow for permanent remote removal.
+
+## Understanding run timings
+
+New results show time spent preparing, removing queued cloud copies, and processing backup folders. Folder work includes rclone's overlapping comparison and uploads, so these are not separate transfer-speed measurements. Older results retain their original information.
+
+Optimization has a **Stop analysis** button during its metadata-analysis stage. Stopping leaves the completed preview in history and makes no exclusions. Update downloads have **Cancel download**; cancelling leaves the installed version unchanged. These controls do not interrupt a backup or delete cloud data.
